@@ -12,6 +12,7 @@ A modern, responsive portfolio website built with Next.js 16, Tailwind CSS, and 
 ## Prerequisites
 
 Before you begin, ensure you have the following installed:
+
 - [Node.js](https://nodejs.org/) (v24.x or higher)
 - [Bun](https://bun.sh/) (latest version)
 
@@ -20,12 +21,14 @@ Before you begin, ensure you have the following installed:
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone <repository-url>
 cd srijani-portfolio
 ```
 
 2. Install dependencies:
+
 ```bash
 bun install
 ```
@@ -33,6 +36,7 @@ bun install
 ### Development
 
 Run the development server:
+
 ```bash
 bun run dev
 ```
@@ -42,6 +46,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to see the r
 ### Build
 
 Create an optimized production build:
+
 ```bash
 bun run build
 ```
@@ -49,6 +54,7 @@ bun run build
 ### Production
 
 Start the production server:
+
 ```bash
 bun run start
 ```
@@ -56,9 +62,11 @@ bun run start
 ### Linting
 
 Run ESLint to check for code quality issues:
+
 ```bash
 bun run lint
 ```
+
 ## Customization
 
 ### Styling
@@ -76,4 +84,3 @@ This project is open source and available under the MIT License.
 ## Author
 
 **Srijani Chakraborty**
-

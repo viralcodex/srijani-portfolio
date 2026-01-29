@@ -1,35 +1,34 @@
+import AnimatedText from "@/components/AnimatedText";
+import Layout from "@/components/Layout";
+import Head from "next/head";
+import Image from "next/image";
+import React, { useEffect, useRef } from "react";
+import profilePic from "../../public/images/profile/profile2.png";
+import { useInView, useMotionValue, useSpring } from "framer-motion";
+import Skills from "@/components/Skills";
+import Experience from "@/components/Experience";
+import Education from "@/components/Education";
+import TransitionEffect from "@/components/TransitionEffect";
 
-import AnimatedText from '@/components/AnimatedText'
-import Layout from '@/components/Layout'
-import Head from 'next/head'
-import Image from 'next/image'
-import React, { useEffect, useRef } from 'react'
-import profilePic from "../../public/images/profile/profile2.png"
-import { useInView, useMotionValue, useSpring } from 'framer-motion'
-import Skills from '@/components/Skills'
-import Experience from '@/components/Experience'
-import Education from '@/components/Education'
-import TransitionEffect from '@/components/TransitionEffect'
-
-const AnimatedNumbers=({value})=>{
-    const ref=useRef(null)
-    const motionValue=useMotionValue(0);
-    const springValue=useSpring(motionValue,{duration:3000})
-    const isInView=useInView(ref,{once:true})
-    useEffect(()=>{
-        if(isInView){
-            motionValue.set(value);
-        }
-    },[isInView,value,motionValue])
-    useEffect(()=>{
-        springValue.on("change",(latest)=>{
-            if(ref.current && latest.toFixed(0)<=value){
-                ref.current.textContent=latest.toFixed(0)
-            }
-        })
-    },[springValue,value])
-    return <span ref={ref}></span>
-}
+const AnimatedNumbers = ({ value }) => {
+  const ref = useRef(null);
+  const motionValue = useMotionValue(0);
+  const springValue = useSpring(motionValue, { duration: 3000 });
+  const isInView = useInView(ref, { once: true });
+  useEffect(() => {
+    if (isInView) {
+      motionValue.set(value);
+    }
+  }, [isInView, value, motionValue]);
+  useEffect(() => {
+    springValue.on("change", (latest) => {
+      if (ref.current && latest.toFixed(0) <= value) {
+        ref.current.textContent = latest.toFixed(0);
+      }
+    });
+  }, [springValue, value]);
+  return <span ref={ref}></span>;
+};
 
 const about = () => {
   return (
@@ -51,24 +50,21 @@ const about = () => {
                 Biography
               </h2>
               <p className="font-medium">
-                Hi, I’m Srijani — a full-stack developer with 3.5 years of
-                experience working across both front-end and back-end to build
-                complete, scalable web applications. I enjoy turning complex
-                requirements into clean, reliable, and user-friendly solutions.
+                Hi, I’m Srijani — a full-stack developer with 3.5 years of experience working across
+                both front-end and back-end to build complete, scalable web applications. I enjoy
+                turning complex requirements into clean, reliable, and user-friendly solutions.
               </p>
 
               <p className="my-4 font-medium">
-                I believe great products are built by combining thoughtful
-                design, solid engineering, and a deep understanding of user
-                needs. My focus is always on creating intuitive experiences
-                backed by maintainable and efficient systems.
+                I believe great products are built by combining thoughtful design, solid
+                engineering, and a deep understanding of user needs. My focus is always on creating
+                intuitive experiences backed by maintainable and efficient systems.
               </p>
 
               <p className="font-medium">
-                Whether I’m building a feature end-to-end, improving existing
-                systems, or collaborating with cross-functional teams, I bring a
-                strong sense of ownership and a passion for delivering
-                high-quality digital experiences.
+                Whether I’m building a feature end-to-end, improving existing systems, or
+                collaborating with cross-functional teams, I bring a strong sense of ownership and a
+                passion for delivering high-quality digital experiences.
               </p>
             </div>
             <div className="col-span-4 relative h-max rounded-2xl border-2 border-solid border-dark bg-light p-8 dark:bg-dark dark:border-light xl:col-span-4 md:order-1 md:col-span-8">
@@ -107,6 +103,6 @@ const about = () => {
       </main>
     </>
   );
-}
+};
 
-export default about
+export default about;

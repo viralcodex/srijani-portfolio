@@ -18,9 +18,7 @@ export default function App({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main
-        className={`${monteserrat.variable} min-h-[100%] font-mont bg-light dark:bg-dark w-full`}
-      >
+      <main className={`${monteserrat.variable} min-h-full font-mont bg-light dark:bg-dark w-full`}>
         <NavBar />
         <hr className="border-dark/50 dark:border-light/50" />
         <AnimatePresence mode="wait">

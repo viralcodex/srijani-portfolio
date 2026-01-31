@@ -7,7 +7,7 @@ const Details = ({ type, time, place, info }) => {
   return (
     <li
       ref={ref}
-      className="my-8 first:mt-0  w-[60%] mx-auto flex flex-col items-center justify-between md:w-[80%]"
+      className="my-8 first:mt-0  w-[60%] mx-auto flex flex-col items-start justify-between md:w-[80%]"
     >
       <LiIcon reference={ref} />
       <motion.div
@@ -30,7 +30,7 @@ const Education = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "center start"],
+    offset: ["start end", "end center"],
   });
   return (
     <div className="my-40">
@@ -40,7 +40,7 @@ const Education = () => {
       <div ref={ref} className="w-[75%] mx-auto relative lg:w-[90%] md:w-full">
         <motion.div
           style={{ scaleY: scrollYProgress }}
-          className="absolute left-9 top-0 w-[4px] h-full bg-dark origin-top dark:bg-light md:w-[2px] md:left-[30px] xs:left-[20px]"
+          className="absolute left-9 top-0 w-1 h-full bg-dark origin-top dark:bg-light md:w-0.5 md:left-7.5 xs:left-5"
         />
         <ul className="w-full flex flex-col items-start justify-between ml-4">
           <Details

@@ -21,10 +21,9 @@ const FramerImage = motion(Image);
 const FeaturedProjects = ({ type, title, summary, img, link, github }) => {
   return (
     <article
-      className="w-full flex items-center justify-between relative rounded-br-2xl rounded-3xl border border-solid border-dark bg-light shadow-2xl p-12 dark:bg-dark dark:border-light
-    lg:flex-col lg:p-8 xs:rounded-2xl xs:rounded-br-3xl xs:p-4"
+      className="w-full flex items-center justify-between relative rounded-br-2xl rounded-3xl border border-solid border-dark bg-light shadow-2xl p-12 dark:bg-dark dark:border-light lg:flex-col lg:p-8 xs:rounded-2xl xs:rounded-br-3xl xs:p-4 h-full"
     >
-      <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2.5rem] bg-dark dark:bg-light rounded-br-3xl xs:-right-2 sm:h-[102%] xs:w-full xs:rounded-[1.5rem]" />
+      <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2.5rem] bg-dark dark:bg-light rounded-br-3xl xs:-right-2 sm:h-[102%] xs:w-full xs:rounded-3xl" />
       {link ? (
         <Link
           href={link}
@@ -68,19 +67,19 @@ const FeaturedProjects = ({ type, title, summary, img, link, github }) => {
           </h2>
         )}
         <p className="my-2 font-medium text-dark dark:text-light sm:text-sm">{summary}</p>
-        <div className="mt-2 flex items-center">
-          <Link className="w-10" href={github} target="_blank">
-            <GithubIcon />
-          </Link>
+        <div className="mt-2 w-full flex items-center">
           {link && (
             <Link
               href={link}
               target="_blank"
-              className="ml-4 rounded-lg bg-dark text-light p-2 px-6 text-lg font-semibold dark:bg-light dark:text-dark sm:px-4 sm:text-base"
+              className="rounded-lg bg-dark text-light p-2 px-6 text-lg font-semibold dark:bg-light dark:text-dark sm:px-4 sm:text-base"
             >
               Visit Project
             </Link>
           )}
+          <Link className="w-10 ml-auto" href={github} target="_blank">
+            <GithubIcon />
+          </Link>
         </div>
       </div>
     </article>
@@ -89,28 +88,28 @@ const FeaturedProjects = ({ type, title, summary, img, link, github }) => {
 
 const Project = ({ title, type, img, link, github }) => {
   return (
-    <article className="w-full flex flex-col items-center justify-center rounded-2xl border border-solid border-dark bg-light p-6 relative dark:bg-dark dark:border-light xs:p-4">
-      <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark rounded-br-3xl dark:bg-light md:-right-2 md:w-[101%] xs:h-[102%] xs:rounded-[1.5rem]" />
+    <article className="w-full h-full flex flex-col items-center justify-start rounded-2xl border border-solid border-dark bg-light p-6 relative dark:bg-dark dark:border-light xs:p-4">
+      <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-4xl bg-dark rounded-br-3xl dark:bg-light md:-right-2 md:w-[101%] xs:h-[102%] xs:rounded-3xl" />
       {link ? (
         <Link
           href={link}
           target="_blank"
-          className="w-full cursor-pointer overflow-hidden rounded-lg"
+          className="w-full cursor-pointer overflow-hidden rounded-lg h-48 flex items-center justify-center bg-gray-50 dark:bg-gray-900"
         >
           <FramerImage
             src={img}
             alt={title}
-            className="w-full h-auto"
+            className="w-full h-full object-cover"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           />
         </Link>
       ) : (
-        <div className="w-full cursor-pointer overflow-hidden rounded-lg">
-          <FramerImage src={img} alt={title} className="w-full h-auto" />
+        <div className="w-full cursor-pointer overflow-hidden rounded-lg h-48 flex items-center justify-center bg-gray-50 dark:bg-gray-900">
+          <FramerImage src={img} alt={title} className="w-full h-full object-cover" />
         </div>
       )}
-      <div className="w-full flex flex-col items-start justify-between mt-4">
+      <div className="w-full flex flex-col items-start justify-between mt-4 grow">
         <span className="text-primary font-medium text-xl dark:text-primaryDark lg:text-lg md:text-base">
           {type}
         </span>
@@ -121,7 +120,7 @@ const Project = ({ title, type, img, link, github }) => {
         ) : (
           <h2 className="my-2 w-full text-left text-3xl font-bold lg:text-2xl">{title}</h2>
         )}
-        <div className="w-full mt-2 flex items-center justify-between">
+        <div className="w-full mt-auto pt-2 flex items-center">
           {link && (
             <Link
               href={link}
@@ -131,9 +130,8 @@ const Project = ({ title, type, img, link, github }) => {
               Visit
             </Link>
           )}
-          <Link className="w-8 md:w-6" href={github} target="_blank">
-            {" "}
-            <GithubIcon />{" "}
+          <Link className="w-8 md:w-6 ml-auto" href={github} target="_blank">
+            <GithubIcon />
           </Link>
         </div>
       </div>
@@ -152,11 +150,11 @@ const projects = () => {
       <main className="w-full mb-16 flex flex-col items-center justify-center dark:text-light">
         <Layout className="pt-16">
           <AnimatedText
-            className="mb-16 lg:!text-7xl sm:!text-6xl xs:!text-4xl"
+            className="mb-16 lg:text-7xl! sm:text-6xl! xs:text-4xl!"
             text="Imagination Trumps Knowledge!"
           />
           <div className="grid grid-cols-12 gap-24 gap-y-32 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0">
-            <div className="col-span-6 sm:col-span-12">
+            <div className="col-span-6 sm:col-span-12 flex">
               <Project
                 title="AI Chat Application"
                 img={project7}
@@ -179,14 +177,14 @@ const projects = () => {
                 github="https://github.com/Srijani-Chakroborty/AmiSocial"
               />
             </div>
-            <div className="col-span-6 sm:col-span-12">
+            <div className="col-span-6 sm:col-span-12 flex">
               <Project
                 title="Online Banking Website"
                 img={project2}
                 github="https://github.com/Srijani-Chakroborty/Online-Banking-website"
               />
             </div>
-            <div className="col-span-6 sm:col-span-12">
+            <div className="col-span-6 sm:col-span-12 flex">
               <Project
                 title="Media Streamer"
                 img={project3}
@@ -202,7 +200,7 @@ const projects = () => {
                 github="https://github.com/Srijani-Chakroborty/Face-Recognition-System"
               />
             </div>
-            <div className="col-span-6 sm:col-span-12">
+            <div className="col-span-6 sm:col-span-12 flex">
               <Project
                 title="Sort Visualizer"
                 img={project5}
@@ -210,7 +208,7 @@ const projects = () => {
                 github="https://github.com/Srijani-Chakroborty/Sort_visualizer"
               />
             </div>
-            <div className="col-span-6 sm:col-span-12">
+            <div className="col-span-6 sm:col-span-12 flex">
               <Project
                 title="URL Shortener"
                 img={project6}

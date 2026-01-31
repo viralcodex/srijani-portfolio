@@ -20,14 +20,14 @@ export default function Home() {
         />
       </Head>
       <TransitionEffect />
-      <main className="flex items-center text-dark w-full h-[calc(100vh-140px)] overflow-hidden dark:text-light">
-        <Layout className="py-0! h-full flex items-center">
-          <div className="flex items-center justify-between w-full gap-6 lg:flex-col lg:gap-3 h-full lg:justify-center lg:overflow-y-auto">
+      <main className="flex items-center text-dark w-full min-h-[calc(100vh-135px)] dark:text-light overflow-hidden">
+        <Layout className="py-0! h-full flex items-center w-full">
+          <div className="flex items-center justify-between w-full gap-6 lg:flex-col lg:gap-3 lg:justify-center">
             <div className="w-1/2 lg:w-full flex justify-center lg:shrink-0">
               <Image
                 src={profilePic}
                 alt="srijani"
-                className="w-full h-auto w:4/5 sm:w-full max-h-[60vh] lg:max-h-[50vh] md:max-h-[40vh] sm:max-h-[80vh] object-contain"
+                className="w-full h-auto lg:w-4/5 sm:w-full max-h-[55vh] lg:max-h-[40vh] md:max-h-[35vh] sm:max-h-[35vh] object-contain"
                 priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 50vw"
               />
@@ -64,7 +64,7 @@ export default function Home() {
                   Email
                 </Link>
               </div>
-              <div className="hidden sm:flex flex-row justify-center items-center gap-6 mt-8 lg:mt-4 md:mt-3 sm:mt-2 lg:gap-4 sm:gap-3">
+              <div className="hidden sm:flex flex-row justify-center items-center gap-6 mt-8 lg:mt-4 md:mt-3 sm:mt-2 lg:gap-4 sm:gap-3 mb-4">
                 <a
                   href="mailto:chakrobortysrijani2001@gmail.com"
                   target="_blank"
